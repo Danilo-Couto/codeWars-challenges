@@ -1,9 +1,8 @@
 # You will be given a list of integers, , and a single integer . You must create an array of length  from elements of  such that its unfairness is minimized. Call that array . Unfairness of an array is calculated as max(arr) - min(arr)
 
 #  example:
-arr = [2, 5, 9, 18, 22, 23]
+arr = [100, 200, 300, 350, 400, 401, 402]
 k = 3
-
 
 # def calcperm(arr, k): # com ajuda da internet
 #     perm = list([[]])
@@ -35,7 +34,7 @@ k = 3
 def maxMin(k, arr):
     lower_fairness = max(arr) - min(arr)
     arr.sort()
-    for i in range(len(arr) - k):
+    for i in range(len(arr) - k + 1):
         highest = arr[i+k-1]  # para pegar k elementos (menos um pois é não inclusivo)
         lowest = arr[i]
         lower_fairness = min(lower_fairness, highest - lowest)
@@ -44,7 +43,7 @@ def maxMin(k, arr):
 
 # def maxMin(k, arr):
 #     arr.sort()
-#     return min(arr[i+k-1] - arr[i] for i in range(len(arr) - k))
+#     return min(arr[i+k-1] - arr[i] for i in range(len(arr) - k + 1))
 
 
 print(maxMin(k, arr))
